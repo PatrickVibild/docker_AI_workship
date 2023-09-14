@@ -1,0 +1,33 @@
+services:
+#  data:
+#    image: pytorch-generic:latest
+#    environment:
+#      SCRIPT: cifar_data.py
+#      PATH_DATA: /data
+#    volumes:
+#      - ${PWD}/cifar:/code/cifar
+#      - ${PWD}/mount_dir/data:/data
+#      - ${PWD}/mount_dir/weights:/weights
+#  train:
+#    image: pytorch-generic:latest
+#    environment:
+#      SCRIPT: train.py
+#      PATH_DATA: /data
+#      PATH_WEIGHT: /weights/cifar_net.pth
+#      EPOCH: 10
+#      LR: 0.001
+#      MOMENTUM: 0.9
+#    volumes:
+#      - ${PWD}/cifar:/code/cifar
+#      - ${PWD}/mount_dir/data:/data
+#      - ${PWD}/mount_dir/weights:/weights
+  test:
+    image: pytorch-generic:latest
+    environment:
+      SCRIPT: test.py
+      PATH_DATA: /data
+      PATH_WEIGHT: /weights/cifar_net.pth
+    volumes:
+      - ${PWD}/cifar:/code/cifar
+      - ${PWD}/mount_dir/data:/data
+      - ${PWD}/mount_dir/weights:/weights
